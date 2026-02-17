@@ -15,17 +15,17 @@ jobs:
             - name: run tests
               run: npm test      
       
-deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-        - name: get code
-          uses: actions/checkout@v3
-        - name: install nodejs
-          uses: actions/setup-node@v3
-          with:
-            node-version: 20
-        - name: install dependencies
-          run: npm install
-        - name: deploy to production
-          run: echo "Deploying to production..."          
+    deploy:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - name: get code
+              uses: actions/checkout@v3
+            - name: install nodejs
+              uses: actions/setup-node@v3
+              with:
+                node-version: 20
+            - name: install dependencies
+              run: npm install
+            - name: deploy
+              run: echo "deploying..."
